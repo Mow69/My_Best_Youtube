@@ -12,8 +12,7 @@ public class YoutubeVideo implements Serializable {
     public YoutubeVideo() {
     }
 
-    public YoutubeVideo(Long id, String titre, String description, String url, String categorie) {
-        this.id = id;
+    public YoutubeVideo(String titre, String description, String url, String categorie) {
         this.titre = titre;
         this.description = description;
         this.url = url;
