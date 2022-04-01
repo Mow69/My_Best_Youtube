@@ -1,6 +1,7 @@
 package com.ita.mybestyoutube;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -42,6 +44,14 @@ public class AddYoutubeVideoActivity extends AppCompatActivity {
 
         btnAdd = findViewById(R.id.btnAdd);
         btnCancel = findViewById(R.id.btnCancel);
+
+        // affiche le go back
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+
+        // récupére l'intent qui à servi pour appeler cet Activy
+        Intent intent = getIntent();
 
         // créé le spinner
         String[] plants = new String[]{
@@ -93,5 +103,13 @@ public class AddYoutubeVideoActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        // termine l'activité lors d'un go back
+        finish();
+        return true;
     }
 }
