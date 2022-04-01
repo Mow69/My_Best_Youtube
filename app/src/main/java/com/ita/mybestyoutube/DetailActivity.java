@@ -1,7 +1,11 @@
 package com.ita.mybestyoutube;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -27,7 +31,12 @@ public class DetailActivity extends AppCompatActivity {
         
         YoutubeVideo youtubeVideo = (YoutubeVideo)intent.getSerializableExtra("youtubevideo");
 
-        tvDetailYoutubeVideo.setText(String.format("%s - %s - %s - %s", youtubeVideo.getTitre(), youtubeVideo.getDescription(), youtubeVideo.getUrl(), youtubeVideo.getCategorie()));
+        SpannableStringBuilder boldTitreBuilder = new SpannableStringBuilder();
+        String boldTitre = "%s";
+        boldTitreBuilder.append(boldTitre);
+        boldTitreBuilder.setSpan(new StyleSpan(Typeface.BOLD), 0, boldTitre.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        tvDetailYoutubeVideo.setText(String.format(boldTitreBuilder + " \n %s \n %s \n %s \n", youtubeVideo.getTitre(), youtubeVideo.getDescription(), youtubeVideo.getUrl(), youtubeVideo.getCategorie()));
     }
 
     @Override
