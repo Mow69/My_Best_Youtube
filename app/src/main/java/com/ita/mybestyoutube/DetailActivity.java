@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
         
         YoutubeVideo youtubeVideo = (YoutubeVideo)intent.getSerializableExtra("youtubevideo");
 
-        tvDetailYoutubeVideo.setText(String.format("%d - %s - %s - %s - %s", youtubeVideo.getId(), youtubeVideo.getTitre(), youtubeVideo.getDescription(), youtubeVideo.getUrl(), youtubeVideo.getCategorie()));
+        tvDetailYoutubeVideo.setText(String.format("%s - %s - %s - %s", youtubeVideo.getTitre(), youtubeVideo.getDescription(), youtubeVideo.getUrl(), youtubeVideo.getCategorie()));
     }
 
     @Override

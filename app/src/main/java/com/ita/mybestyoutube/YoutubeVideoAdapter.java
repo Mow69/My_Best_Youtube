@@ -20,16 +20,12 @@ public class YoutubeVideoAdapter extends RecyclerView.Adapter<YoutubeVideoAdapte
 
         public TextView tvTitre;
         public TextView tvDescription;
-        public TextView tvUrl;
-        public TextView tvCategorie;
 
         public YoutubeVideoViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvTitre = itemView.findViewById(R.id.tvTitre);
             tvDescription = itemView.findViewById(R.id.tvDescription);
-            tvUrl = itemView.findViewById(R.id.tvUrl);
-            tvCategorie = itemView.findViewById(R.id.tvCategorie);
         }
     }
 
@@ -56,8 +52,6 @@ public class YoutubeVideoAdapter extends RecyclerView.Adapter<YoutubeVideoAdapte
         // met les information du youtubeVideo qui est dans la liste dans la vue de l'item
         holder.tvTitre.setText(youtubeVideo.getTitre());
         holder.tvDescription.setText(youtubeVideo.getDescription());
-        holder.tvUrl.setText(youtubeVideo.getUrl());
-        holder.tvCategorie.setText(youtubeVideo.getCategorie());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
