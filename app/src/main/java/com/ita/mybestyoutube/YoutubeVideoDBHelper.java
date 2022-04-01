@@ -20,8 +20,8 @@ public class YoutubeVideoDBHelper extends SQLiteOpenHelper {
     public static final int YOUTUBEVIDEO_KEY_COLUMN_INDEX = 0;
     public static final int YOUTUBEVIDEO_TITRE_COLUMN_INDEX = 1;
     public static final int YOUTUBEVIDEO_DESCRIPTION_COLUMN_INDEX = 2;
-    public static final int YOUTUBEVIDEO_URL_COLUMN_INDEX = 2;
-    public static final int YOUTUBEVIDEO_CATEGORIE_COLUMN_INDEX = 2;
+    public static final int YOUTUBEVIDEO_URL_COLUMN_INDEX = 3;
+    public static final int YOUTUBEVIDEO_CATEGORIE_COLUMN_INDEX = 4;
 
     public static final String YOUTUBEVIDEO_TABLE_CREATE =
             "CREATE TABLE " + YOUTUBEVIDEO_TABLE_NAME + " (" +
