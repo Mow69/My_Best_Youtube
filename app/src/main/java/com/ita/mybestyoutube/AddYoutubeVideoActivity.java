@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,15 +82,21 @@ public class AddYoutubeVideoActivity extends AppCompatActivity {
                 // récupère l'item
                 String categorie = ytvCategorie.getSelectedItem().toString();
 
-                // créé le YoutubeVideo
-                YoutubeVideo youtubeVideo = new YoutubeVideo(titre, description, url, categorie);
+                // si l'un des champs est vide on affiche le toast et on redirige sur la page principale
+                if(0 < (titre.length() & description.length() & url.length())) {
+                    // créé le YoutubeVideo
+                    YoutubeVideo youtubeVideo = new YoutubeVideo(titre, description, url, categorie);
 
-                // ajoute le YoutubeVideo en BDD
-                YoutubeVideoDAO youtubeVideoDAO = new YoutubeVideoDAO(getApplicationContext());
-                youtubeVideoDAO.add(youtubeVideo);
-
+                    // ajoute le YoutubeVideo en BDD
+                    YoutubeVideoDAO youtubeVideoDAO = new YoutubeVideoDAO(getApplicationContext());
+                    youtubeVideoDAO.add(youtubeVideo);
+                } else {
+                    Toast toast = Toast.makeText(context, "Oups... Il semble qu'il manque quelque chose.\nVeuillez remplir tous les champs et essayez à nouveau.", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
                 // revient à la MainActivity
                 finish();
+
             }
         });
 
