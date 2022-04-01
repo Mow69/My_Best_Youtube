@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private TextView tvYoutubeVideos;
     private Context context;
@@ -40,6 +42,28 @@ public class MainActivity extends AppCompatActivity {
         rvYoutubeVideos.setHasFixedSize(true);
         // lie le LayoutManager avec le RecyclerView
         rvYoutubeVideos.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        YoutubeVideoDAO youtubeVideoDAO = new YoutubeVideoDAO(context);
+        List<YoutubeVideo> youtubeVideos = youtubeVideoDAO.list();
+
+        // créé l'adapteur et l'affecte au recyclerview
+        YoutubeVideoAdapter youtubeVideoAdapter = new YoutubeVideoAdapter(youtubeVideos, new YoutubeVideoAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(YoutubeVideo item) { // méthode qui va s"exécuter quand on click sur l'item
+                Intent intent = new Intent(context, DetailActivity.class);
+
+                intent.putExtra("youtubevideo", item);
+
+                startActivity(intent);
+            }
+        });
+        rvYoutubeVideos.setAdapter(youtubeVideoAdapter);
+
     }
 
     // recupère le menu
