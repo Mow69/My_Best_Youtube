@@ -1,3 +1,5 @@
+package com.ita.mybestyoutube;
+
 import java.io.Serializable;
 
 public class YoutubeVideo implements Serializable {
@@ -60,7 +62,7 @@ public class YoutubeVideo implements Serializable {
 
     @Override
     public String toString() {
-        return "YoutubeVideo{" +
+        return "com.ita.mybestyoutube.YoutubeVideo{" +
                 "id=" + id +
                 ", titre='" + titre + '\'' +
                 ", description='" + description + '\'' +
